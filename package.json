@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "wevote project express server",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tosico85/wevote.git"
+  },
   "scripts": {
     "start": "nodemon --exec babel-node src/init.js"
   },
