@@ -1,21 +1,17 @@
-import mysql from "mysql";
+import userLoginHistory from "../models/userLoginHistory";
 
-const connection = mysql.createConnection({
-	host: process.env.HOST,
-	user: process.env.USER,
-	password: process.env.PASSWORD,
-	database: process.env.DATABASE
-});
+export const insertLoginHist = async (req, res) => {
+  const userName = "anonymous";
+  const userDevice = "iPhone";
 
-function executeSql(query, callback) {
-  connection.query(query, function (error, results, fields) {
-  if (error) throw error;
-  //console.log('The solution is: ', results[0].solution);
+  console.log(userName);
 
-  callback(results);
+  try {
+    const result = await userLoginHistory.create({ userName, userDevice });
+  } catch {
+    console.log("error");
+    res.send("failed");
   }
-);
 
-export const userController = (req, res)=>{
-
+  res.send("success");
 };

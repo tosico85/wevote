@@ -9,6 +9,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
 import globalRouter from "./routers/globalRouter";
+import userRouter from "./routers/userRouter";
 import routes from "./routes";
 import { localsMiddleware } from "./middlewares";
 
@@ -38,9 +39,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 */
 app.use(cors());
-
 app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
+app.use(routes.user, userRouter);
 
 export default app;

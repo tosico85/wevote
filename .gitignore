@@ -118,3 +118,5 @@ package-lock.
 uploads
 static
 build
+
+.DS_Store
